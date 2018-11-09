@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9CBB1CAC-3BEF-4614-ABA1-37DE0D5B2844}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ClientApplication</RootNamespace>
+    <AssemblyName>ClientApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddBookLeding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBookLeding.Designer.cs">
+      <DependentUpon>AddBookLeding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Account.Designer.cs">
+      <DependentUpon>Add_Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Book.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Book.Designer.cs">
+      <DependentUpon>Add_Book.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Borrowing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Borrowing.Designer.cs">
+      <DependentUpon>Borrowing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Account.Designer.cs">
+      <DependentUpon>Edit_Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_Book_Information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Book_Information.Designer.cs">
+      <DependentUpon>Edit_Book_Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage_Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage_Account.Designer.cs">
+      <DependentUpon>Manage_Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage_Storage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage_Storage.Designer.cs">
+      <DependentUpon>Manage_Storage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search.Designer.cs">
+      <DependentUpon>Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentUI.designer.cs">
+      <DependentUpon>StudentUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI.Designer.cs">
+      <DependentUpon>UI.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddBookLeding.resx">
+      <DependentUpon>AddBookLeding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Account.resx">
+      <DependentUpon>Add_Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Book.resx">
+      <DependentUpon>Add_Book.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Borrowing.resx">
+      <DependentUpon>Borrowing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Account.resx">
+      <DependentUpon>Edit_Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Book_Information.resx">
+      <DependentUpon>Edit_Book_Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage_Account.resx">
+      <DependentUpon>Manage_Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage_Storage.resx">
+      <DependentUpon>Manage_Storage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentUI.resx">
+      <DependentUpon>StudentUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI.resx">
+      <DependentUpon>UI.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DB\DB.csproj">
+      <Project>{881b41f1-0611-472f-a1da-fd4a7d279d46}</Project>
+      <Name>DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{b72ec5a7-cf70-427c-aa0e-fa5b2d3567de}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scholarship %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-minimize-window-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-book-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-remove-book-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-check-book-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-check-book-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\savesmall.png" />
+    <None Include="Resources\lender.png" />
+    <None Include="Resources\network.png" />
+    <None Include="Resources\document.png" />
+    <None Include="Resources\documentSmall.png" />
+    <None Include="Resources\documentsmaller.png" />
+    <None Include="Resources\filter.png" />
+    <None Include="Resources\eye.png" />
+    <Content Include="Resources\notebook.png" />
+    <None Include="Resources\notebookAddItem.png" />
+    <Content Include="Resources\notebookRenew.png" />
+    <Content Include="Resources\notebookReturn.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
