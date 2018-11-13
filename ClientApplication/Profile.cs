@@ -13,8 +13,6 @@ namespace ClientApplication
 {
     public partial class Profile : Form
     {
-        private String StudentID = null;
-        private DatabaseService Service = null;
         private int CurrentId;
         private String oldPass;
         private void notifySet(string message)
@@ -31,7 +29,7 @@ namespace ClientApplication
         }
         private void loadDataDefault()
         {
-            dataGridViewBookLeding.DataSource = Service.getDataContext().BookLendings.Where(x => x.StudentId == CurrentId).Select(x => new
+            dataGridViewBookLeding.DataSource = Program.Service.getDataContext().BookLendings.Where(x => x.StudentId == CurrentId).Select(x => new
             {
                 Book = x.Book.Title,
                 Book2 = x.Book1 == null ? null : x.Book1.Title,
@@ -41,12 +39,10 @@ namespace ClientApplication
 
             }).ToList();
         }
-        public Profile( string StudentID)
+        public Profile()
         {
             InitializeComponent();
-            this.StudentID = StudentID;
-            Service = new DatabaseService(StudentID); 
-            Student student = Service.getDataContext().Students.FirstOrDefault(x => x.StudentId == StudentID);
+            Student student = Program.Service.getDataContext().Students.FirstOrDefault(x => x.StudentId == Program.Username);
             CurrentId = student.Id;
             loadDataDefault();
             oldPass = student.PasswordStr;
@@ -98,7 +94,7 @@ namespace ClientApplication
                     PasswordStr = string.IsNullOrEmpty(txt_Password.Text) ? oldPass : txt_Password.Text,
                     StudentId = txt_StudenId.Text
                 };
-                Service.StudentEntity.Update(toEdit);
+                Program.Service.StudentEntity.Update(toEdit);
                 MessageBox.Show("Tài Khoản đã được sửa đổi.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 buttonSave.Visible = false;
                 txt_Name.Enabled = false;
@@ -124,7 +120,7 @@ namespace ClientApplication
                 return;
             }
             notifyReset();
-            var data = Service.getDataContext().BookLendings.Where(x => x.StudentId == CurrentId).Select(x => new
+            var data = Program.Service.getDataContext().BookLendings.Where(x => x.StudentId == CurrentId).Select(x => new
             {
                 Book = x.Book.Title,
                 Book2 = x.Book1 == null ? null : x.Book1.Title,
@@ -141,7 +137,7 @@ namespace ClientApplication
                     dataGridViewBookLeding.DataSource = data.Where(x => x.IsReturn == "Chưa Trả").ToList();
                     break;
                 case 2:
-                    //dataGridViewBookLeding.DataSource = data.ToList();
+                    dataGridViewBookLeding.DataSource = data.ToList();
                     break;
             }
         }
@@ -149,7 +145,7 @@ namespace ClientApplication
         private void Profile_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            StudentUI newUI = new StudentUI(StudentID);
+            StudentUI newUI = new StudentUI();
             newUI.ShowDialog();
         }
     }

@@ -12,8 +12,6 @@ namespace ClientApplication
 {
     public partial class Manage_Account : Form
     {
-        private string Username;
-        DatabaseService Service;
         int CurrentID = -1;
         private void notifySet(string message)
         {
@@ -27,11 +25,9 @@ namespace ClientApplication
             notify.ForeColor = this.BackColor;
             panelNotify.BackColor = this.BackColor;
         }
-        public Manage_Account(string username)
+        public Manage_Account()
         {
             InitializeComponent();
-            Username = username;
-            Service = new DatabaseService(Username);
             loadDataDefault();
             dataGridViewStudent.Columns[0].HeaderText = "STT";
             dataGridViewStudent.Columns[1].HeaderText = "MSSV";
@@ -48,7 +44,7 @@ namespace ClientApplication
 
         private void loadDataDefault()
         {
-            dataGridViewStudent.DataSource = Service.getDataContext().Students.Select(x => new
+            dataGridViewStudent.DataSource = Program.Service.getDataContext().Students.Select(x => new
             {
                 ID = x.Id,
                 StudentId = x.StudentId,
@@ -59,7 +55,7 @@ namespace ClientApplication
         }
         private void btn_Add_Account_Click(object sender, EventArgs e)
         {
-            Add_Account Add_Account_form = new Add_Account(Username);
+            Add_Account Add_Account_form = new Add_Account();
             Add_Account_form.Show();
             notifySet("Thông tin chưa được cập nhật.Vui lòng bấm \"Làm mới\"");
         }
@@ -72,7 +68,7 @@ namespace ClientApplication
                 return;
             }
             notifyReset();
-            Edit_Account form = new Edit_Account(CurrentID, Username);
+            Edit_Account form = new Edit_Account(CurrentID);
             form.Show();
             notifySet("Thông tin chưa được cập nhật.Vui lòng bấm \"Làm mới\"");
         }
@@ -96,7 +92,7 @@ namespace ClientApplication
             {
                 try
                 {
-                    Service.StudentEntity.Delete(CurrentID);
+                    Program.Service.StudentEntity.Delete(CurrentID);
                     loadDataDefault();
                 }
                 catch (Exception)
@@ -127,7 +123,7 @@ namespace ClientApplication
                 return;
             }
             notifyReset();
-            var data = Service.getDataContext().Students.Select(x => new {
+            var data = Program.Service.getDataContext().Students.Select(x => new {
                 ID = x.Id,
                 StudentId = x.StudentId,
                 StudentName = x.StudentName,
@@ -151,7 +147,7 @@ namespace ClientApplication
         private void Manage_Account_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            UI newUi = new UI(Username);
+            UI newUi = new UI();
             newUi.ShowDialog();
         }
     }

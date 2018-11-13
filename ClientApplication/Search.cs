@@ -12,14 +12,12 @@ using System.Text.RegularExpressions;
 namespace ClientApplication
 {
  
-    
     public partial class Search : Form
     {
-        private DatabaseService Service;
-        private string StudentId;
+        public int IDCurrent = -1;
         private void dataSourceDefault()
         {
-            dataGridViewBook.DataSource = Service.getDataContext().Books.Select(x => new
+            dataGridViewBook.DataSource = Program.Service.getDataContext().Books.Select(x => new
             {
                 ID = x.Id,
                 Author = x.Author.AuthorName,
@@ -61,11 +59,9 @@ namespace ClientApplication
             notify.ForeColor = this.BackColor;
             panelNotify.BackColor = this.BackColor;
         }
-        public Search(string studentId)
+        public Search()
         {
             InitializeComponent();
-            StudentId = studentId;
-            Service = new DatabaseService(StudentId);
             dataSourceDefault();
 
         }
@@ -79,7 +75,7 @@ namespace ClientApplication
                 return;
             }
             notifyReset();
-            var data = Service.getDataContext().Books.Select(x => new
+            var data = Program.Service.getDataContext().Books.Select(x => new
             {
                 ID = x.Id,
                 Author = x.Author.AuthorName,
@@ -132,9 +128,26 @@ namespace ClientApplication
         private void Search_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            StudentUI newUi = new StudentUI(StudentId);
+            StudentUI newUi = new StudentUI();
             newUi.ShowDialog();
         }
 
+        private void dataGridViewBook_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!Regex.IsMatch(Program.Username,"^\\d{7,10}$"))
+            {
+                int quantity = int.Parse(dataGridViewBook.Rows[e.RowIndex].Cells[5].Value.ToString());
+                if (quantity > 0)
+                {
+                    IDCurrent = int.Parse(dataGridViewBook.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    this.Hide();
+                }
+                else
+                {
+                    notifySet("Sách đã mượn hết, Vui lòng chọn sách khác.");
+                }
+
+            }
+        }
     }
 }

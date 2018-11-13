@@ -14,8 +14,6 @@ namespace ClientApplication
 {
     public partial class Borrowing : Form
     {
-        private string Username;
-        private DatabaseService Service;
         private int CurrentId = -1;
         private string StudentId;
         private void notifySet(string message)
@@ -32,7 +30,7 @@ namespace ClientApplication
         }
         private void loadDataDefault()
         {
-            dataGridViewBookLeding.DataSource = Service.getDataContext().BookLendings.Select(x => new
+            dataGridViewBookLeding.DataSource = Program.Service.getDataContext().BookLendings.Select(x => new
             {
                 ID = x.Id,
                 StudentId = x.Student.StudentId,
@@ -48,11 +46,9 @@ namespace ClientApplication
             }).ToList();
 
         }
-        public Borrowing(string username)
+        public Borrowing()
         {
             InitializeComponent();
-            Username = username;
-            Service = new DatabaseService(Username);
             loadDataDefault();
 
             dataGridViewBookLeding.Columns[0].HeaderText = "STT";
@@ -82,7 +78,7 @@ namespace ClientApplication
         private void buttonAddBookLend_Click(object sender, EventArgs e)
         {
             notifySet("Thông tin chưa được cập nhật. Vui lòng bấm \"Làm mới\"");
-            AddBookLeding addBookLeding = new AddBookLeding(Username);
+            AddBookLeding addBookLeding = new AddBookLeding();
             addBookLeding.ShowDialog();
         }
 
@@ -102,11 +98,11 @@ namespace ClientApplication
             notifyReset();
             try
             {
-                int idLibManager = Service.getDataContext().LibManagers.FirstOrDefault(x => x.Username == Username).Id;
-                int idStudent = Service.getDataContext().Students.FirstOrDefault(x => x.StudentId == StudentId).Id;
+                int idLibManager = Program.Service.getDataContext().LibManagers.FirstOrDefault(x => x.Username == Program.Username).Id;
+                int idStudent = Program.Service.getDataContext().Students.FirstOrDefault(x => x.StudentId == StudentId).Id;
                 if (MessageBox.Show("Thực hiện trả sách cho sinh viên hiện tại", "Xác Thực", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Service.ReturnBookLending(idStudent, idLibManager);
+                    Program.Service.ReturnBookLending(idStudent, idLibManager);
                     loadDataDefault();
                 }
             }
@@ -139,11 +135,11 @@ namespace ClientApplication
             notifyReset();
             try
             {
-                int idLibManager = Service.getDataContext().LibManagers.FirstOrDefault(x => x.Username == Username).Id;
-                int idStudent = Service.getDataContext().Students.FirstOrDefault(x => x.StudentId == StudentId).Id;
+                int idLibManager = Program.Service.getDataContext().LibManagers.FirstOrDefault(x => x.Username == Program.Username).Id;
+                int idStudent = Program.Service.getDataContext().Students.FirstOrDefault(x => x.StudentId == StudentId).Id;
                 if (MessageBox.Show("Thực hiện gia hạn sách cho sinh viên hiện tại", "Xác Thực", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Service.RenewBookLending(idStudent, idLibManager);
+                    Program.Service.RenewBookLending(idStudent, idLibManager);
                     loadDataDefault();
                 }
             }
@@ -164,7 +160,7 @@ namespace ClientApplication
                 return;
             }
             notifyReset();
-            var data = Service.getDataContext().BookLendings.Select(x => new
+            var data = Program.Service.getDataContext().BookLendings.Select(x => new
             {
                 ID = x.Id,
                 StudentId = x.Student.StudentId,
@@ -195,7 +191,7 @@ namespace ClientApplication
         private void Borrowing_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            UI newUi = new UI(Username);
+            UI newUi = new UI();
             newUi.ShowDialog();
         }
     }

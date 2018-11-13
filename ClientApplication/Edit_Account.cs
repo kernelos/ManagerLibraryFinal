@@ -13,8 +13,6 @@ namespace ClientApplication
 {
     public partial class Edit_Account : Form
     {
-        String Username;
-        DatabaseService Service;
         int CurrentId;
         string oldPass;
         private void notifySet(string message)
@@ -29,13 +27,11 @@ namespace ClientApplication
             notify.ForeColor = this.BackColor;
             panelNotify.BackColor = this.BackColor;
         }
-        public Edit_Account(int id, string username)
+        public Edit_Account(int id)
         {
             InitializeComponent();
-            Username = username;
-            Service = new DatabaseService(username);
             CurrentId = id;
-            Student student = Service.getDataContext().Students.FirstOrDefault(x => x.Id == CurrentId);
+            Student student = Program.Service.getDataContext().Students.FirstOrDefault(x => x.Id == CurrentId);
             txt_Name.Text = student.StudentName;
             txt_Personalid.Text = student.PersonalId;
             txt_StudenId.Text = student.StudentId;
@@ -67,7 +63,7 @@ namespace ClientApplication
                     PasswordStr = string.IsNullOrEmpty(txt_Password.Text) ? oldPass : txt_Password.Text,
                     StudentId = txt_StudenId.Text
                 };
-                Service.StudentEntity.Update(toEdit);
+                Program.Service.StudentEntity.Update(toEdit);
                 this.Hide();
             }
             catch (Exception)

@@ -12,11 +12,9 @@ namespace ClientApplication
 {
     public partial class Add_Book : Form
     {
-        DatabaseService Service;
-        public Add_Book(string username)
+        public Add_Book()
         {
             InitializeComponent();
-            Service = new DatabaseService(username);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -28,7 +26,7 @@ namespace ClientApplication
         {
             try
             {
-                Service.AddBookToLibrary(txtName.Text, txt_quantity.Text, txt_ISBN.Text, txtYear.Text
+                Program.Service.AddBookToLibrary(txtName.Text, txt_quantity.Text, txt_ISBN.Text, txtYear.Text
                     , richTextDecription.Text, txtAuthor.Text, txtPublisher.Text, txtCategory.Text);
                 this.Hide();
             }

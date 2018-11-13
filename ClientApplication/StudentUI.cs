@@ -12,24 +12,22 @@ namespace ClientApplication
 {
     public partial class StudentUI : Form
     {
-        string student;
-        public StudentUI(string StudenID)
+        public StudentUI()
         {
             InitializeComponent();
-            student = StudenID;
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Search search = new Search(student);
+            Search search = new Search();
             search.ShowDialog();
         }
 
         private void mnAccountBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Profile stuProfile = new Profile(student);
+            Profile stuProfile = new Profile();
             stuProfile.ShowDialog();
         }
 

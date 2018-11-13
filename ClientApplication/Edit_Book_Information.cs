@@ -14,14 +14,12 @@ namespace ClientApplication
 {
     public partial class Edit_Book_Information : Form
     {
-        DatabaseService Service;
         int idBook;
-        public Edit_Book_Information(string username, int idEdit)
+        public Edit_Book_Information(int idEdit)
         {
             InitializeComponent();
-            Service = new DatabaseService(username);
             idBook = idEdit;
-            using (var dataContext = Service.getDataContext())
+            using (var dataContext = Program.Service.getDataContext())
             {
                 Book book = dataContext.Books.FirstOrDefault(x => x.Id == idEdit);
                 if (book == null)
@@ -53,7 +51,7 @@ namespace ClientApplication
             labelNotify.ForeColor = this.BackColor;
             try
             {
-                Service.UpdateBook(idBook, txtName.Text, txt_quantity.Text,
+                Program.Service.UpdateBook(idBook, txtName.Text, txt_quantity.Text,
                 txt_ISBN.Text, txtYear.Text, richTextDecription.Text,
                 txtAuthor.Text, txtPublisher.Text, txtCategory.Text);
                 this.Hide();

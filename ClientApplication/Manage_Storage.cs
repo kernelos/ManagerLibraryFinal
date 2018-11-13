@@ -15,19 +15,15 @@ namespace ClientApplication
 {
     public partial class Manage_Storage : Form
     {
-        private DatabaseService Service;
-        private string Username;
-        public int IDCurrent = -1;
-        public Manage_Storage(string username)
+        private int IDCurrent = -1;
+        public Manage_Storage()
         {
             InitializeComponent();
-            Username = username;
-            Service = new DatabaseService(Username);
             dataSourceDefault();
         }
         private void dataSourceDefault()
         {
-            dataGridViewBook.DataSource = Service.getDataContext().Books.Select(x => new
+            dataGridViewBook.DataSource = Program.Service.getDataContext().Books.Select(x => new
             {
                 ID = x.Id,
                 Author = x.Author.AuthorName,
@@ -76,7 +72,7 @@ namespace ClientApplication
                 notifySet("Hãy chọn sách để chỉnh sửa ở bảng phía dưới.");
                 return;
             }
-            Edit_Book_Information EditBook = new Edit_Book_Information(Username, IDCurrent);
+            Edit_Book_Information EditBook = new Edit_Book_Information(IDCurrent);
             EditBook.Show();
             notifySet("Thông tin chưa được cập nhật. Vui lòng bấm \"Làm mới\"");
             btn_Search.Enabled = true;
@@ -84,7 +80,7 @@ namespace ClientApplication
 
         private void btn_AddBook_Click(object sender, EventArgs e)
         {
-            Add_Book form = new Add_Book(Username);
+            Add_Book form = new Add_Book();
             form.Show();
             notifySet("Thông tin chưa được cập nhật. Vui lòng bấm \"Làm mới\"");
         }
@@ -99,7 +95,7 @@ namespace ClientApplication
                 return;
             }
             notifyReset();
-            var data = Service.getDataContext().Books.Select(x => new
+            var data = Program.Service.getDataContext().Books.Select(x => new
             {
                 ID = x.Id,
                 Author = x.Author.AuthorName,
@@ -172,7 +168,7 @@ namespace ClientApplication
                 if (MessageBox.Show("Bạn có chắc sẽ xóa thông tin sách này", "Xác Minh",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Service.DeleteBook(IDCurrent);
+                    Program.Service.DeleteBook(IDCurrent);
                     dataSourceDefault();
                 }
 
@@ -183,28 +179,11 @@ namespace ClientApplication
             }
         }
 
-        private void dataGridViewBook_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(Username == "_Leding_Form")
-            {
-                int quantity = int.Parse(dataGridViewBook.Rows[e.RowIndex].Cells[5].Value.ToString());
-                if (quantity > 0)
-                {
-                    IDCurrent = int.Parse(dataGridViewBook.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    this.Close();
-                }
-                else
-                {
-                    notifySet("Sách đã mượn hết, Vui lòng chọn sách khác.");
-                }
-                
-            }
-        }
 
         private void Manage_Storage_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            UI newUi = new UI(Username);
+            UI newUi = new UI();
             newUi.ShowDialog();
         }
     }

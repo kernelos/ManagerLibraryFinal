@@ -13,11 +13,9 @@ namespace ClientApplication
 {
     public partial class AddBookLeding : Form
     {
-        private string Username;
         private int IdBookOne = -1;
         private int? IdBookTwo = null;
-        private DatabaseService Service;
-        Manage_Storage bookData;
+        private Search bookData;
         private void notifySet(string message)
         {
             notify.Text = message;
@@ -30,12 +28,10 @@ namespace ClientApplication
             notify.ForeColor = this.BackColor;
             panelNotify.BackColor = this.BackColor;
         }
-        public AddBookLeding(string username)
+        public AddBookLeding()
         {
             InitializeComponent();
-            Username = username;
-            Service = new DatabaseService(username);
-            bookData = new Manage_Storage("_Leding_Form");
+            bookData = new Search();
         }
 
         private void addBookOne_Click(object sender, EventArgs e)
@@ -44,7 +40,7 @@ namespace ClientApplication
             IdBookOne = bookData.IDCurrent;
             if (IdBookOne <0)
                 return;
-            BookOneName.Text = Service.getDataContext().Books.FirstOrDefault
+            BookOneName.Text = Program.Service.getDataContext().Books.FirstOrDefault
                 (x => x.Id == IdBookOne).Title;
         }
 
@@ -60,7 +56,7 @@ namespace ClientApplication
             }
             notifyReset();
             IdBookTwo = bookData.IDCurrent;
-            BookTwoName.Text = Service.getDataContext().Books.FirstOrDefault
+            BookTwoName.Text = Program.Service.getDataContext().Books.FirstOrDefault
                 (x => x.Id == IdBookTwo).Title;
         }
 
@@ -77,7 +73,7 @@ namespace ClientApplication
                 return;
             }
             notifyReset();
-            using (var dataContext = Service.getDataContext())
+            using (var dataContext = Program.Service.getDataContext())
             {
                 Student student = dataContext.Students.FirstOrDefault(x => x.StudentId == textboxStudentID.Text);
                 if (student == null)
@@ -92,12 +88,12 @@ namespace ClientApplication
                     BooIdOne = IdBookOne,
                     BookIdTwo = IdBookTwo,
                     LendingManagerId = dataContext.LibManagers.FirstOrDefault
-                                        (x => x.Username.ToLower() == Username.ToLower()).Id,
+                                        (x => x.Username.ToLower() == Program.Username.ToLower()).Id,
                     LendingDay = lendDate.Value.Date,
                     IsReturn = false
                     
                 };
-                Service.AddBookLending(bookLending);
+                Program.Service.AddBookLending(bookLending);
                 this.Hide();
             }
 

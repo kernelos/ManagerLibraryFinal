@@ -59,7 +59,7 @@
             this.label1.Location = new System.Drawing.Point(16, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 39);
+            this.label1.Size = new System.Drawing.Size(242, 48);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quản lý kho";
             // 
@@ -102,14 +102,13 @@
             this.dataGridViewBook.Size = new System.Drawing.Size(1290, 375);
             this.dataGridViewBook.TabIndex = 15;
             this.dataGridViewBook.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBook_CellClick);
-            this.dataGridViewBook.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBook_CellDoubleClick);
             // 
             // txt_Search
             // 
             this.txt_Search.Location = new System.Drawing.Point(20, 96);
             this.txt_Search.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Search.Name = "txt_Search";
-            this.txt_Search.Size = new System.Drawing.Size(260, 26);
+            this.txt_Search.Size = new System.Drawing.Size(260, 30);
             this.txt_Search.TabIndex = 8;
             // 
             // cB_Search_follow
@@ -135,7 +134,7 @@
             this.cB_Search_follow.Location = new System.Drawing.Point(125, 48);
             this.cB_Search_follow.Margin = new System.Windows.Forms.Padding(4);
             this.cB_Search_follow.Name = "cB_Search_follow";
-            this.cB_Search_follow.Size = new System.Drawing.Size(155, 24);
+            this.cB_Search_follow.Size = new System.Drawing.Size(155, 27);
             this.cB_Search_follow.TabIndex = 6;
             // 
             // btn_Search
@@ -157,7 +156,7 @@
             this.label3.Location = new System.Drawing.Point(16, 51);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 15);
+            this.label3.Size = new System.Drawing.Size(106, 18);
             this.label3.TabIndex = 7;
             this.label3.Text = "Tìm kiếm theo:";
             // 
@@ -219,7 +218,7 @@
             this.notify.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.notify.Location = new System.Drawing.Point(3, 3);
             this.notify.Name = "notify";
-            this.notify.Size = new System.Drawing.Size(0, 19);
+            this.notify.Size = new System.Drawing.Size(0, 23);
             this.notify.TabIndex = 16;
             this.notify.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

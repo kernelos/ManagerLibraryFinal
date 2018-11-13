@@ -13,10 +13,9 @@ namespace ClientApplication
     public partial class UI : Form
     {
         string librarian;
-        public UI(string username)
+        public UI()
         {
             InitializeComponent();
-            librarian = username;
         }
 
 
@@ -28,21 +27,21 @@ namespace ClientApplication
         private void mnStoreBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Manage_Storage mnStore = new Manage_Storage(librarian);
+            Manage_Storage mnStore = new Manage_Storage();
             mnStore.ShowDialog();
         }
 
         private void mnAccountBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Manage_Account mnAccount = new Manage_Account(librarian);
+            Manage_Account mnAccount = new Manage_Account();
             mnAccount.ShowDialog();
         }
 
         private void BorrowingBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Borrowing borrowing = new Borrowing(librarian);
+            Borrowing borrowing = new Borrowing();
             borrowing.ShowDialog();
         }
 

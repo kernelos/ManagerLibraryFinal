@@ -14,13 +14,9 @@ namespace ClientApplication
 {
     public partial class Add_Account : Form
     {
-        private string Username;
-        private DatabaseService Service;
-        public Add_Account(string username)
+        public Add_Account()
         {
             InitializeComponent();
-            Username = username;
-            Service = new DatabaseService(Username);
         }
 
         private void notifySet(string message)
@@ -49,7 +45,7 @@ namespace ClientApplication
                 return;
             }
             notifyReset();
-            using(var dataContext = Service.getDataContext())
+            using(var dataContext = Program.Service.getDataContext())
             {
                 Student student = dataContext.Students.FirstOrDefault(x => x.StudentId == txt_StudenId.Text);
                 if (student != null)
@@ -68,7 +64,7 @@ namespace ClientApplication
                     PersonalId = String.IsNullOrEmpty(txt_Personalid.Text)?null:txt_Personalid.Text,
                     Birthday = txt_Date.Value.Date
                 };
-                Service.StudentEntity.Add(newStudent);
+                Program.Service.StudentEntity.Add(newStudent);
                 this.Hide();
             }
             catch (Exception)

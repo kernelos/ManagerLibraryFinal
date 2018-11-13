@@ -17,7 +17,6 @@ namespace Services
     /// </summary>
     public class DatabaseService
     {
-        private string CurrentUsemame;
         #region Entity
         public ManagerEntitySet ManagerEntity { get; private set; }
         public StudentEntitySet StudentEntity { get; private set; }
@@ -32,7 +31,6 @@ namespace Services
         /// <param name="usename">Tên Đăng nhập của thủ thư</param>
         public DatabaseService(string usename)
         {
-            CurrentUsemame = usename;
             ManagerEntity = new ManagerEntitySet(usename);
             StudentEntity = new StudentEntitySet(usename);
         }
@@ -122,32 +120,6 @@ namespace Services
 
 
 
-        #endregion
-
-        #region Data Get All
-        public IList<Author> GetAllAuthor()
-        {
-            return getDataContext().Authors.ToList();
-        }
-
-        public IList<BookLending> GetAllBookLending()
-        {
-            return getDataContext().BookLendings.ToList();
-        }
-        public IList<Book> GetAllBook()
-        {
-            return getDataContext().Books.ToList();
-        }
-
-        public IList<Category> GetAllCategory()
-        {
-            return getDataContext().Categories.ToList();
-        }
-
-        public IList<Publisher> GetAllPublisher()
-        {
-            return getDataContext().Publishers.ToList();
-        }
         #endregion
 
         #region service for manager
@@ -392,40 +364,6 @@ namespace Services
         public void RenewBookLending(int idStudent, int idLibManager)
         {
             BookLendingTableManipulation.RenewBook(idStudent, idLibManager);
-        }
-
-        /// <summary>
-        /// Yêu cầu excel gồm có 
-        /// </summary>
-        /// <param name="path"></param>
-        public void AddBookFromFileExcel(string path, int book)
-        {
-            string[] rowData = new string[8];
-            _Application excel = new _Excel.Application();
-            Workbook workbook = excel.Workbooks.Open(path);
-            Worksheet worksheet = workbook.Worksheets[1];
-            for (int i = 2; i <= book + 1; i++)
-            {
-                for (int j = 1; j <= 8; j++)
-                {
-                    if (worksheet.Cells[i, j].Value2 != null)
-                        rowData[j - 1] = worksheet.Cells[i, j].Value2.ToString();
-                    else
-                        rowData[j - 1] = "";
-                }
-                try
-                {
-                    AddBookToLibrary(rowData[0], rowData[1], rowData[2], rowData[3],
-                                 rowData[4], rowData[5], rowData[6], rowData[7]);
-                }
-                catch (Exception)
-                {
-
-                }
-
-            }
-            workbook.Close();
-
         }
         #endregion
     }

@@ -122,22 +122,5 @@ namespace Services.TableEntities
             }
         }
         
-        /// <summary>
-        /// Get book by condition
-        /// </summary>
-        /// <param name="predicate"></param>
-        /// <returns>Book's list object</returns>
-        /// <exception cref="ArgumentException"></exception>
-        public static List<Book> GetBookByCondition(Predicate<Book> predicate)
-        {
-            if (predicate == null)
-            {
-                throw new ArgumentNullException();
-            }
-            using (var db = new LibraryManagementEntities())
-            {
-                return db.Books.ToList().Where(b => predicate(b)).ToList();
-            }
-        }
     }
 }

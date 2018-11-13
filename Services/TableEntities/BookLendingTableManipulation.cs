@@ -85,22 +85,5 @@ namespace Services.TableEntities
                 db.SaveChanges();
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
-        public static List<BookLending> GetBookLendingRecordByCondition(Predicate<BookLending> predicate)
-        {
-            if (predicate == null)
-            {
-                throw new ArgumentNullException();
-            }
-            using (var db = new LibraryManagementEntities())
-            {
-                return db.BookLendings.ToList().Where(bl=>predicate(bl)).ToList();
-            }
-        }
     }
 }

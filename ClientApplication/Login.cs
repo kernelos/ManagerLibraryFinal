@@ -9,13 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DB;
 using Services;
-
 namespace ClientApplication
 {
     public partial class Login : Form
     {
-        private DatabaseService Service;
-        private string Username;
         public Login()
         {
             InitializeComponent();
@@ -23,7 +20,7 @@ namespace ClientApplication
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            Username = txtUsername.Text;
+            Program.Username = txtUsername.Text;
             if (String.IsNullOrEmpty(txtUsername.Text) ||
                 String.IsNullOrEmpty(txtPassword.PasswordChar.ToString()) ||
                 cBchedo.SelectedItem == null)
@@ -36,26 +33,26 @@ namespace ClientApplication
             
             try
             {
-                Service = new DatabaseService(Username);
+                Program.Service = new DatabaseService(Program.Username);
                 if (role == Role.ManagerRole)
                 {
-                    if (Service.IsFirstLoginManager()) {
+                    if (Program.Service.IsFirstLoginManager()) {
                         MessageBox.Show("Đây là lần đăng nhập đầu tiên của bạn," +
                             " chúng tôi sẽ tạo tài khoản theo username và password bạn đã cung cấp", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
           
                 }
-                if(Service.Authenticate(txtUsername.Text, txtPassword.Text, role))
+                if(Program.Service.Authenticate(txtUsername.Text, txtPassword.Text, role))
                 {
                     this.Hide();
                     if (role == Role.ManagerRole)
                     {
-                        UI ui = new UI(Username);
+                        UI ui = new UI();
                         ui.ShowDialog();
                     }
                     else if(role == Role.StudentRole)
                     {
-                        StudentUI ui = new StudentUI(Username);
+                        StudentUI ui = new StudentUI();
                         ui.ShowDialog();
                     }
                 }
@@ -71,6 +68,11 @@ namespace ClientApplication
             }
             
            
+        }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
