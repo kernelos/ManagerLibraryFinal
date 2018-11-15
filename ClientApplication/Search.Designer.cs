@@ -50,10 +50,9 @@
             // buttonRefresh
             // 
             this.buttonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRefresh.Location = new System.Drawing.Point(1236, 176);
-            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonRefresh.Location = new System.Drawing.Point(927, 143);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(108, 33);
+            this.buttonRefresh.Size = new System.Drawing.Size(81, 27);
             this.buttonRefresh.TabIndex = 26;
             this.buttonRefresh.Text = "Làm mới";
             this.buttonRefresh.UseVisualStyleBackColor = true;
@@ -62,19 +61,20 @@
             // panelNotify
             // 
             this.panelNotify.Controls.Add(this.notify);
-            this.panelNotify.Location = new System.Drawing.Point(747, 182);
-            this.panelNotify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelNotify.Location = new System.Drawing.Point(560, 148);
+            this.panelNotify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelNotify.Name = "panelNotify";
-            this.panelNotify.Size = new System.Drawing.Size(483, 26);
+            this.panelNotify.Size = new System.Drawing.Size(362, 21);
             this.panelNotify.TabIndex = 25;
             // 
             // notify
             // 
             this.notify.AutoSize = true;
             this.notify.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notify.Location = new System.Drawing.Point(3, 2);
+            this.notify.Location = new System.Drawing.Point(2, 2);
+            this.notify.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.notify.Name = "notify";
-            this.notify.Size = new System.Drawing.Size(0, 23);
+            this.notify.Size = new System.Drawing.Size(0, 19);
             this.notify.TabIndex = 16;
             this.notify.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -102,8 +102,7 @@
             this.dataGridViewBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewBook.EnableHeadersVisualStyles = false;
             this.dataGridViewBook.GridColor = System.Drawing.SystemColors.Highlight;
-            this.dataGridViewBook.Location = new System.Drawing.Point(13, 217);
-            this.dataGridViewBook.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewBook.Location = new System.Drawing.Point(10, 176);
             this.dataGridViewBook.MultiSelect = false;
             this.dataGridViewBook.Name = "dataGridViewBook";
             this.dataGridViewBook.ReadOnly = true;
@@ -114,7 +113,7 @@
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(68)))), ((int)(((byte)(87)))));
             this.dataGridViewBook.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBook.Size = new System.Drawing.Size(1331, 375);
+            this.dataGridViewBook.Size = new System.Drawing.Size(998, 305);
             this.dataGridViewBook.TabIndex = 24;
             this.dataGridViewBook.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBook_CellDoubleClick);
             // 
@@ -125,11 +124,9 @@
             this.groupBox1.Controls.Add(this.cB_Search_follow);
             this.groupBox1.Controls.Add(this.txt_Search);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(508, 34);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(381, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(408, 143);
+            this.groupBox1.Size = new System.Drawing.Size(306, 116);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm kiếm";
@@ -138,20 +135,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 50);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(8, 41);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 18);
+            this.label3.Size = new System.Drawing.Size(88, 15);
             this.label3.TabIndex = 7;
             this.label3.Text = "Tìm kiếm theo:";
             // 
             // btn_Search
             // 
             this.btn_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Search.Location = new System.Drawing.Point(316, 94);
-            this.btn_Search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Search.Location = new System.Drawing.Point(237, 76);
             this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(73, 33);
+            this.btn_Search.Size = new System.Drawing.Size(55, 27);
             this.btn_Search.TabIndex = 9;
             this.btn_Search.Text = "Tìm";
             this.btn_Search.UseVisualStyleBackColor = true;
@@ -177,18 +172,16 @@
             "Nhà xuất bản",
             "Năm xuất bản",
             "Thể loại"});
-            this.cB_Search_follow.Location = new System.Drawing.Point(131, 48);
-            this.cB_Search_follow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cB_Search_follow.Location = new System.Drawing.Point(98, 39);
             this.cB_Search_follow.Name = "cB_Search_follow";
-            this.cB_Search_follow.Size = new System.Drawing.Size(155, 27);
+            this.cB_Search_follow.Size = new System.Drawing.Size(117, 24);
             this.cB_Search_follow.TabIndex = 6;
             // 
             // txt_Search
             // 
-            this.txt_Search.Location = new System.Drawing.Point(27, 96);
-            this.txt_Search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_Search.Location = new System.Drawing.Point(20, 78);
             this.txt_Search.Name = "txt_Search";
-            this.txt_Search.Size = new System.Drawing.Size(260, 30);
+            this.txt_Search.Size = new System.Drawing.Size(196, 26);
             this.txt_Search.TabIndex = 8;
             // 
             // label1
@@ -196,30 +189,29 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(13, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(10, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(424, 48);
+            this.label1.Size = new System.Drawing.Size(346, 39);
             this.label1.TabIndex = 19;
             this.label1.Text = "Trang Tìm Kiếm Sách";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ClientApplication.Properties.Resources.eye;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 50);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 41);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(407, 144);
+            this.pictureBox1.Size = new System.Drawing.Size(305, 117);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
             // 
             // Search
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1371, 603);
+            this.ClientSize = new System.Drawing.Size(1028, 490);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.panelNotify);
@@ -227,7 +219,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
             this.Name = "Search";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tìm kiếm";

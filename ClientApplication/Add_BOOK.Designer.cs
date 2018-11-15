@@ -114,7 +114,7 @@
             // 
             this.notify.Controls.Add(this.labelNotify);
             this.notify.Location = new System.Drawing.Point(209, 267);
-            this.notify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.notify.Margin = new System.Windows.Forms.Padding(2);
             this.notify.Name = "notify";
             this.notify.Size = new System.Drawing.Size(407, 58);
             this.notify.TabIndex = 36;
@@ -132,7 +132,7 @@
             // richTextDecription
             // 
             this.richTextDecription.Location = new System.Drawing.Point(86, 128);
-            this.richTextDecription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextDecription.Margin = new System.Windows.Forms.Padding(2);
             this.richTextDecription.Name = "richTextDecription";
             this.richTextDecription.Size = new System.Drawing.Size(531, 122);
             this.richTextDecription.TabIndex = 30;
@@ -269,6 +269,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Add_Book";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm sách";

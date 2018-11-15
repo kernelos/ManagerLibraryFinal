@@ -34,8 +34,8 @@
             this.mnAccountBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -105,16 +105,6 @@
             this.panel1.Size = new System.Drawing.Size(522, 126);
             this.panel1.TabIndex = 4;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(152, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(316, 24);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "HỆ THỐNG QUẢN LÝ THƯ VIỆN";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -125,6 +115,16 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "CHỨC NĂNG DÀNH CHO SINH VIÊN";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(152, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(316, 24);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "HỆ THỐNG QUẢN LÝ THƯ VIỆN";
+            // 
             // StudentUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,6 +132,7 @@
             this.ClientSize = new System.Drawing.Size(522, 326);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
+            this.MaximizeBox = false;
             this.Name = "StudentUI";
             this.Text = "StudentUI";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentUI_FormClosed);

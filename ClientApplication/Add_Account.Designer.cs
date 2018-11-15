@@ -73,7 +73,7 @@
             // 
             this.panelNotify.Controls.Add(this.notify);
             this.panelNotify.Location = new System.Drawing.Point(13, 195);
-            this.panelNotify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelNotify.Margin = new System.Windows.Forms.Padding(2);
             this.panelNotify.Name = "panelNotify";
             this.panelNotify.Size = new System.Drawing.Size(270, 35);
             this.panelNotify.TabIndex = 33;
@@ -223,6 +223,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Add_Account";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm tài khoản";
