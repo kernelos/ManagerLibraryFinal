@@ -132,8 +132,10 @@
             this.ClientSize = new System.Drawing.Size(522, 326);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "StudentUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentUI";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentUI_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
