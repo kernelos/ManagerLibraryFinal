@@ -128,8 +128,11 @@ namespace ClientApplication
         private void Search_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            StudentUI newUi = new StudentUI();
-            newUi.ShowDialog();
+            if (Regex.IsMatch(Program.Username, "^\\d{7,10}$"))
+            {
+                StudentUI newUi = new StudentUI();
+                newUi.ShowDialog();
+            }
         }
 
         private void dataGridViewBook_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
